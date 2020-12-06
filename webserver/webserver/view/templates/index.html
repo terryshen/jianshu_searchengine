@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{ % static "index.css" %}">
+
+</head>
+<body>
+    <h1 align="center">{{ title }}</h1>
+    <form action="/">
+        <input align="center" type="text" name="keywords" value="{{ keywords }}">
+        <input align="center" type="submit" value="搜索">
+    </form>
+    <div> {{ err_info }}</div>
+    <!-- 搜索结果 -->
+    <div id='result'>
+        {% for item in result %}
+            <div class='result-item'>
+                <div>
+                    <a href="{{ item.url }}" target="_blank">{{ item.title }}</a>
+                </div>
+
+                <div> {{ item.content }} </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+        <input align="center" type="submit" value="下一页">
+    </div>
+</body>
+</html>

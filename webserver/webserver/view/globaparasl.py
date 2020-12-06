@@ -1,0 +1,1 @@
+NumPerPage = 20
